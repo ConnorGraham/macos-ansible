@@ -1,0 +1,9 @@
+  - name: homebrew | nginx
+    homebrew:
+      name: nginx
+      state: present
+      upgrade: true
+
+  - name: homebrew | upgrade all
+    homebrew:
+      upgrade_all: true

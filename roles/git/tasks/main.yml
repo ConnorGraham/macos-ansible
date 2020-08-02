@@ -1,0 +1,12 @@
+  - git_config:
+      name: user.name
+      scope: global
+      value: Connor Graham
+  - git_config:
+      name: user.email
+      scope: global
+      value: connor@bitovi.com
+  - git_config:
+      name: core.editor
+      scope: global
+      value: code

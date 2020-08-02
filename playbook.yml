@@ -1,8 +1,8 @@
 - hosts: localhost
   tasks:
     - include_role: 
-        name: homebrew
-    - include_role: 
         name: homebrew_cask
     - include_role: 
         name: git
+    - include_role: 
+        name: nginx

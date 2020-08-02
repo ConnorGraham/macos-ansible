@@ -1,0 +1,2 @@
+- name: restart nginx
+  command: /usr/local/bin/brew services restart nginx

@@ -1,0 +1,12 @@
+- name: homebrew | nginx
+  homebrew:
+    name: nginx
+    state: present
+    upgrade: true
+    
+- name: Copy nginx.conf
+  copy:
+    src: nginx.conf
+    dest: /usr/local/etc/nginx/nginx.conf
+  notify:
+  - restart nginx

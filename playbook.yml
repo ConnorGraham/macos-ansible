@@ -6,3 +6,5 @@
         name: git
     - include_role: 
         name: nginx
+    - include_role: 
+        name: profile

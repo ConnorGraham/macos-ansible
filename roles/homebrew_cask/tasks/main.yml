@@ -16,6 +16,18 @@
       name: docker
       state: present
       accept_external_apps: true
+  
+  - name: homebrew cask | slack
+    homebrew_cask:
+      name: slack
+      state: present
+      accept_external_apps: true
+
+  - name: homebrew cask | spotify
+    homebrew_cask:
+      name: spotify
+      state: present
+      accept_external_apps: true
 
   - name: homebrew cask | upgrade all
     homebrew_cask:

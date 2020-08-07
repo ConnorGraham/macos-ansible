@@ -1,0 +1,23 @@
+- name: homebrew | terraform
+  homebrew:
+    name: terraform
+    state: present
+
+- name: homebrew | jq
+  homebrew:
+    name: jq
+    state: present
+
+- name: homebrew | awscli
+  homebrew:
+    name: awscli
+    state: present
+
+- name: homebrew | docker
+  homebrew:
+    name: docker
+    state: present
+
+- name: homebrew | upgrade all
+  homebrew:
+    upgrade_all: true

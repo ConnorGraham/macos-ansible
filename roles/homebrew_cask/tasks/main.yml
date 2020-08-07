@@ -11,6 +11,12 @@
       state: present
       accept_external_apps: true
 
+  - name: homebrew cask | zoomus
+    homebrew_cask:
+      name: zoomus
+      state: present
+      accept_external_apps: true
+
   - name: homebrew cask | docker
     homebrew_cask:
       name: docker

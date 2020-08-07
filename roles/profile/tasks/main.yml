@@ -72,7 +72,7 @@
     domain: NSGlobalDomain
     key: InitialKeyRepeat
     type: int
-    value: 5
+    value: 15
     state: present
 
 - osx_defaults:

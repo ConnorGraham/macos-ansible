@@ -8,6 +8,11 @@
     name: jq
     state: present
 
+- name: homebrew | shyaml
+  homebrew:
+    name: shyaml
+    state: present
+
 - name: homebrew | awscli
   homebrew:
     name: awscli
@@ -16,6 +21,16 @@
 - name: homebrew | docker
   homebrew:
     name: docker
+    state: present
+
+- name: homebrew | node
+  homebrew:
+    name: node
+    state: present
+
+- name: homebrew | composer
+  homebrew:
+    name: composer
     state: present
 
 - name: homebrew | upgrade all

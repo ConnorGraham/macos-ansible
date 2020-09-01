@@ -35,6 +35,12 @@
       state: present
       accept_external_apps: true
 
+  - name: homebrew cask | lastpass
+    homebrew_cask:
+      name: lastpass
+      state: present
+      accept_external_apps: true
+
   - name: homebrew cask | upgrade all
     homebrew_cask:
       upgrade_all: true

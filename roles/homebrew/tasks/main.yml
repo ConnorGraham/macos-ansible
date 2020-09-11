@@ -33,6 +33,16 @@
     name: composer
     state: present
 
+- name: homebrew | github-markdown-toc
+  homebrew:
+    name: github-markdown-toc
+    state: present
+
+- name: homebrew | gh
+  homebrew:
+    name: gh
+    state: present
+
 - name: homebrew | upgrade all
   homebrew:
     upgrade_all: true

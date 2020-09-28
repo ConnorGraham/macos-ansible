@@ -43,6 +43,16 @@
     name: gh
     state: present
 
+- name: homebrew | tree
+  homebrew:
+    name: gh
+    state: present
+
+- name: homebrew | mkdocs
+  homebrew:
+    name: mkdocs
+    state: present
+
 - name: homebrew | upgrade all
   homebrew:
     upgrade_all: true

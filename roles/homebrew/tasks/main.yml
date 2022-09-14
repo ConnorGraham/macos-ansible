@@ -1,11 +1,11 @@
-- name: homebrew | terraform
-  homebrew:
-    name: terraform
-    state: present
-
 - name: homebrew | jq
   homebrew:
     name: jq
+    state: present
+
+- name: homebrew | nmap
+  homebrew:
+    name: nmap
     state: present
 
 - name: homebrew | shyaml
@@ -31,7 +31,7 @@
 - name: homebrew | composer
   homebrew:
     name: composer
-    state: present
+    state: absent
 
 - name: homebrew | github-markdown-toc
   homebrew:
@@ -51,6 +51,16 @@
 - name: homebrew | mkdocs
   homebrew:
     name: mkdocs
+    state: present
+  
+- name: homebrew | helm
+  homebrew:
+    name: helm
+    state: present
+
+- name: homebrew | http-server
+  homebrew:
+    name: http-server
     state: present
 
 - name: homebrew | upgrade all

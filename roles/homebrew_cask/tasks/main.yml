@@ -2,7 +2,6 @@
     homebrew_cask:
       name: visual-studio-code
       state: present
-      upgrade: true
       accept_external_apps: true
 
   - name: homebrew cask | google-chrome
@@ -14,7 +13,7 @@
   - name: homebrew cask | zoomus
     homebrew_cask:
       name: zoomus
-      state: present
+      state: absent
       accept_external_apps: true
 
   - name: homebrew cask | docker
@@ -35,12 +34,33 @@
       state: present
       accept_external_apps: true
 
-  - name: homebrew cask | lastpass
+  # - name: homebrew cask | lastpass
+  #   homebrew_cask:
+  #     name: lastpass
+  #     state: present
+  #     accept_external_apps: true
+
+  
+  - name: homebrew cask | mysqlworkbench
     homebrew_cask:
-      name: lastpass
+      name: mysqlworkbench
       state: present
       accept_external_apps: true
 
-  - name: homebrew cask | upgrade all
+  - name: homebrew cask | skype
     homebrew_cask:
-      upgrade_all: true
+      name: skype
+      state: present
+      accept_external_apps: true
+
+  - name: homebrew cask | postman
+    homebrew_cask:
+      name: postman
+      state: present
+      accept_external_apps: true
+
+  - name: homebrew cask | lens
+    homebrew_cask:
+      name: lens
+      state: present
+      accept_external_apps: true

@@ -33,14 +33,7 @@
       name: spotify
       state: present
       accept_external_apps: true
-
-  # - name: homebrew cask | lastpass
-  #   homebrew_cask:
-  #     name: lastpass
-  #     state: present
-  #     accept_external_apps: true
-
-  
+        
   - name: homebrew cask | mysqlworkbench
     homebrew_cask:
       name: mysqlworkbench
@@ -56,11 +49,5 @@
   - name: homebrew cask | postman
     homebrew_cask:
       name: postman
-      state: present
-      accept_external_apps: true
-
-  - name: homebrew cask | lens
-    homebrew_cask:
-      name: lens
       state: present
       accept_external_apps: true

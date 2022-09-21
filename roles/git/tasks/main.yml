@@ -7,6 +7,10 @@
       scope: global
       value: connor@bitovi.com
   - git_config:
+      name: push.default
+      scope: global
+      value: current
+  - git_config:
       name: core.editor
       scope: global
       value: code

@@ -23,7 +23,6 @@ source $(brew --prefix)/opt/spaceship/spaceship.zsh
 source ~/.zsh_custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.zsh_custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
-
 # Aliases
 function k() {
     kubectl $@
@@ -38,7 +37,7 @@ function kn() {
 }
 
 function f() {
-    cd ${@-~/git}
+    cd ${@:-./}
     cd $(find * -type d | fzf --preview 'tree -C -L 2 {}')
 }
 
@@ -86,6 +85,24 @@ function shit() {
     grafana
     logs
 }
+
 function cat() {
     bat $@
+}
+
+function lens() {
+    open -a OpenLens
+}
+
+function config() {
+    nvim ~/git/macos-ansible/roles/zsh/files/.zshrc
+    ansible-playbook ~/git/macos-ansible/playbook.yml --tags "zsh"
+    source ~/.zshrc
+}
+
+function cleanup() {
+    osascript -e 'quit app "Google Chrome"'
+    osascript -e 'quit app "OpenLens"'
+    osascript -e 'quit app "Visual Studio Code"'
+
 }

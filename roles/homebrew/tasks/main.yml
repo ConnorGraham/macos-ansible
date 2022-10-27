@@ -3,39 +3,9 @@
     name: jq
     state: present
 
-- name: homebrew | nmap
-  homebrew:
-    name: nmap
-    state: present
-
-- name: homebrew | shyaml
-  homebrew:
-    name: shyaml
-    state: present
-
-- name: homebrew | awscli
-  homebrew:
-    name: awscli
-    state: present
-
 - name: homebrew | docker
   homebrew:
     name: docker
-    state: present
-
-- name: homebrew | node
-  homebrew:
-    name: node
-    state: present
-
-- name: homebrew | composer
-  homebrew:
-    name: composer
-    state: absent
-
-- name: homebrew | github-markdown-toc
-  homebrew:
-    name: github-markdown-toc
     state: present
 
 - name: homebrew | gh
@@ -43,14 +13,19 @@
     name: gh
     state: present
 
+- name: homebrew | git
+  homebrew:
+    name: git
+    state: present
+
+- name: homebrew | bash-completion
+  homebrew:
+    name: bash-completion
+    state: present
+
 - name: homebrew | tree
   homebrew:
     name: gh
-    state: present
-
-- name: homebrew | mkdocs
-  homebrew:
-    name: mkdocs
     state: present
   
 - name: homebrew | helm
@@ -58,10 +33,40 @@
     name: helm
     state: present
 
-- name: homebrew | http-server
+- name: homebrew | chroma
   homebrew:
-    name: http-server
+    name: chroma
     state: present
+
+- name: homebrew | thefuck
+  homebrew:
+    name: thefuck
+    state: present
+
+- name: homebrew | reminders-cli
+  homebrew:
+    name: keith/formulae/reminders-cli
+    state: present
+
+- name: homebrew | bat
+  homebrew:
+    name: bat
+    state: present
+
+- name: homebrew | pet
+  homebrew:
+    name: knqyf263/pet/pet
+    state: present  
+
+- name: homebrew | neovim
+  homebrew:
+    name: neovim
+    state: present  
+
+- name: homebrew | fzf
+  homebrew:
+    name: fzf
+    state: present  
 
 - name: homebrew | upgrade all
   homebrew:

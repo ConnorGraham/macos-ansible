@@ -9,18 +9,6 @@
       name: google-chrome
       state: present
       accept_external_apps: true
-
-  - name: homebrew cask | zoomus
-    homebrew_cask:
-      name: zoomus
-      state: absent
-      accept_external_apps: true
-
-  - name: homebrew cask | docker
-    homebrew_cask:
-      name: docker
-      state: present
-      accept_external_apps: true
   
   - name: homebrew cask | slack
     homebrew_cask:
@@ -28,26 +16,14 @@
       state: present
       accept_external_apps: true
 
+  - name: homebrew cask | 1password
+    homebrew_cask:
+      name: 1password/tap/1password-cli
+      state: present
+      accept_external_apps: true
+
   - name: homebrew cask | spotify
     homebrew_cask:
       name: spotify
-      state: present
-      accept_external_apps: true
-        
-  - name: homebrew cask | mysqlworkbench
-    homebrew_cask:
-      name: mysqlworkbench
-      state: present
-      accept_external_apps: true
-
-  - name: homebrew cask | skype
-    homebrew_cask:
-      name: skype
-      state: present
-      accept_external_apps: true
-
-  - name: homebrew cask | postman
-    homebrew_cask:
-      name: postman
       state: present
       accept_external_apps: true

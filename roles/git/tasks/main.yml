@@ -5,12 +5,8 @@
   - git_config:
       name: user.email
       scope: global
-      value: connor@bitovi.com
+      value: connorg@spotify.com
   - git_config:
       name: push.default
       scope: global
       value: current
-  - git_config:
-      name: core.editor
-      scope: global
-      value: code

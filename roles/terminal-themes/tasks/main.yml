@@ -1,0 +1,19 @@
+# THEMES
+# Need to manually update mac terminal profile
+- name: terminal-themes | check materialshell
+  stat:
+    path: '~/.zsh_custom/plugins/materialshell'
+  register: materialshell
+
+- name: terminal-themes | materialshell
+  ansible.builtin.shell: 'git clone git@github.com:carloscuesta/materialshell.git ~/.zsh_custom/plugins/materialshell'
+  when: not materialshell.stat.exists
+
+- name: terminal-themes | check dracula
+  stat:
+    path: '~/.zsh_custom/plugins/dracula'
+  register: dracula
+
+- name: terminal-themes | dracula
+  ansible.builtin.shell: 'git clone https://github.com/dracula/terminal-app.git ~/.zsh_custom/plugins/dracula'
+  when: not dracula.stat.exists

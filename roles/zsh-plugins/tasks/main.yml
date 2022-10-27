@@ -1,0 +1,26 @@
+- name: zsh-plugins | check zsh-syntax-highlighting
+  stat:
+    path: '~/.zsh_custom/plugins/zsh-syntax-highlighting'
+  register: highlight
+
+- name: zsh-plugins | zsh-syntax-highlighting
+  ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh_custom/plugins/zsh-syntax-highlighting'
+  when: not highlight.stat.exists
+
+- name: zsh-plugins | check zsh-autosuggestions
+  stat:
+    path: '~/.zsh_custom/plugins/zsh-autosuggestions'
+  register: autosuggest
+
+- name: zsh-plugins | zsh-autosuggestions
+  ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh_custom/plugins/zsh-autosuggestions'
+  when: not autosuggest.stat.exists
+
+- name: zsh-plugins | check ohmyzh (I only care about plugins)
+  stat:
+    path: '~/.zsh_custom/plugins/ohmyzsh'
+  register: ohmyzsh
+
+- name: zsh-plugins | ohmyzsh (I only care about plugins)
+  ansible.builtin.shell: 'git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.zsh_custom/plugins/ohmyzsh'
+  when: not ohmyzsh.stat.exists

@@ -7,6 +7,12 @@
     - include_role: 
         name: git
     - include_role: 
-        name: nginx
+        name: mac-settings
     - include_role: 
-        name: profile
+        name: zsh
+    - include_role: 
+        name: terminal-prompt
+    - include_role: 
+        name: terminal-themes
+    - include_role: 
+        name: zsh-plugins

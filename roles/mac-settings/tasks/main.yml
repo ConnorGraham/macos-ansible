@@ -1,23 +1,3 @@
-- name: Copy .profile
-  copy:
-    src: .profile
-    dest: ~/.profile
-  notify:
-  - load .profile
-
-- name: Copy .bash_prompt
-  copy:
-    src: .bash_prompt
-    dest: ~/.bash_prompt
-  notify:
-  - load .profile
-
-- name: Copy theme
-  copy:
-    src: Solarized Dark xterm-256color.terminal
-    dest: ~/.theme.terminal
-  notify:
-  - load .profile
 
 - osx_defaults:
     domain: NSGlobalDomain

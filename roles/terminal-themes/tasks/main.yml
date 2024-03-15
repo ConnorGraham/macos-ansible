@@ -17,3 +17,12 @@
 - name: terminal-themes | dracula
   ansible.builtin.shell: 'git clone https://github.com/dracula/terminal-app.git ~/.zsh_custom/plugins/dracula'
   when: not dracula.stat.exists
+
+- name: terminal-themes | check atom-one-dark-terminal
+  stat:
+    path: '~/.zsh_custom/plugins/atom-one-dark-terminal'
+  register: atomonedarkterminal
+
+- name: terminal-themes | atom-one-dark-terminal
+  ansible.builtin.shell: 'git clone https://github.com/nathanbuchar/atom-one-dark-terminal.git ~/.zsh_custom/plugins/atom-one-dark-terminal'
+  when: not atomonedarkterminal.stat.exists

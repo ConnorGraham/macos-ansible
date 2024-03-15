@@ -1,110 +1,118 @@
 
-- osx_defaults:
+- name: Disable automatic capitalization
+  osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticCapitalizationEnabled
     type: bool
     value: false
     state: present
 
-- osx_defaults:
+- name: Disable automatic dash substitution
+  osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticDashSubstitutionEnabled
     type: bool
     value: false
     state: present
 
-- osx_defaults:
+- name: Disable automatic period substitution
+  osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticPeriodSubstitutionEnabled
     type: bool
     value: false
     state: present
 
-- osx_defaults:
+- name: Disable automatic quote substitution
+  osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticQuoteSubstitutionEnabled
     type: bool
     value: false
     state: present
 
-- osx_defaults:
+- name: Disable automatic spelling correction
+  osx_defaults:
     domain: NSGlobalDomain
     key: NSAutomaticSpellingCorrectionEnabled
     type: bool
     value: false
     state: present
 
-- osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticSpellingCorrectionEnabled
-    type: bool
-    value: false
-    state: present
-
-- osx_defaults:
+- name: Faster key repeat
+  osx_defaults:
     domain: NSGlobalDomain
     key: KeyRepeat
-    type: int
+    type: float
     value: 1
     state: present
 
-- osx_defaults:
+- name: Shorter delay until key repeat
+  osx_defaults:
     domain: NSGlobalDomain
     key: InitialKeyRepeat
     type: int
     value: 15
     state: present
 
-- osx_defaults:
+- name: Save screenshots as PNG
+  osx_defaults:
     domain: com.apple.screencapture
     key: type
     type: string
     value: png
     state: present
 
-- osx_defaults:
+- name: Add option to quit finder
+  osx_defaults:
     domain: com.apple.finder
     key: QuitMenuItem
     type: bool
     value: true
     state: present
 
-- osx_defaults:
+- name: Show external hard drives on desktop
+  osx_defaults:
     domain: com.apple.finder
     key: ShowExternalHardDrivesOnDesktop
     type: bool
     value: true
     state: present
 
-- osx_defaults:
+- name: Hide hard drives on desktop
+  osx_defaults:
     domain: com.apple.finder
     key: ShowHardDrivesOnDesktop
     type: bool
     value: false
     state: present
 
-- osx_defaults:
+- name: Show mounted servers on desktop
+  osx_defaults:
     domain: com.apple.finder
     key: ShowMountedServersOnDesktop
     type: bool
     value: true
     state: present
 
-- osx_defaults:
+- name: Show removable media on desktop
+  osx_defaults:
     domain: com.apple.finder
     key: ShowRemovableMediaOnDesktop
     type: bool
     value: true
     state: present
 
-- osx_defaults:
+- name: Show hidden files
+  osx_defaults:
     domain: com.apple.finder
     key: AppleShowAllFiles
     type: bool
     value: true
     state: present
 
-- osx_defaults:
+- name: Show all file extensions
+  osx_defaults:
     domain: com.apple.finder
     key: AppleShowAllExtensions
     type: bool

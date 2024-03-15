@@ -43,11 +43,6 @@
     name: thefuck
     state: present
 
-- name: homebrew | reminders-cli
-  homebrew:
-    name: keith/formulae/reminders-cli
-    state: present
-
 - name: homebrew | bat
   homebrew:
     name: bat
@@ -58,15 +53,25 @@
     name: knqyf263/pet/pet
     state: present  
 
-- name: homebrew | neovim
+- name: homebrew | ripgrep
   homebrew:
-    name: neovim
+    name: ripgrep
     state: present  
+
+- name: homebrew | gdu
+  homebrew:
+    name: gdu
+    state: present 
 
 - name: homebrew | fzf
   homebrew:
     name: fzf
     state: present  
+
+- name: homebrew | conftest
+  homebrew:
+    name: conftest
+    state: present 
 
 - name: homebrew | upgrade all
   homebrew:

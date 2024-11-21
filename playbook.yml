@@ -9,7 +9,7 @@
       tags:
         - zsh
     - include_role: 
-        name: vim
+        name: config
     - include_role: 
         name: homebrew_cask
     - include_role: 

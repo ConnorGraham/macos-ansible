@@ -1,9 +1,0 @@
-- name: nvim | nvim
-  homebrew:
-    name: nvim
-    state: present
-
-- name: nvim | Copy nvim config
-  synchronize:
-    src: ./
-    dest: ~/.config/nvim

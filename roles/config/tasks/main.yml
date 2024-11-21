@@ -1,0 +1,4 @@
+- name: config | Copy .config dir
+  synchronize:
+    src: ./
+    dest: ~/.config/

@@ -47,13 +47,13 @@
     value: 1
     state: present
 
-- name: Shorter delay until key repeat
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: InitialKeyRepeat
-    type: int
-    value: 15
-    state: present
+# - name: Shorter delay until key repeat
+#   osx_defaults:
+#     domain: NSGlobalDomain
+#     key: InitialKeyRepeat
+#     type: int
+#     value: 15
+#     state: present
 
 - name: Save screenshots as PNG
   osx_defaults:

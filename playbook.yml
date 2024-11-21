@@ -5,12 +5,14 @@
     - include_role: 
         name: mac-settings
     - include_role: 
-        name: zsh
-      tags:
-        - zsh
-    - include_role: 
-        name: config
-    - include_role: 
         name: homebrew_cask
     - include_role: 
         name: homebrew
+    - include_role: 
+        name: config
+    - include_role:
+        name: tmux
+    - include_role: 
+        name: zsh
+      tags:
+        - zsh

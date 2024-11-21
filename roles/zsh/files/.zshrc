@@ -1,49 +1,82 @@
-# Vars
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# setup_zsh_plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light Aloxaf/fzf-tab
+
+# Load completions
+autoload -Uz compinit && compinit
+
+# Keybindings
+bindkey '^[[B' history-search-backward
+bindkey '^[[A' history-search-backward
+
+# History
+histsize=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+Histdup=erase
+setopt appendhistory
+setopt extendedhistory
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt share_history
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
+# Misc Vars
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='code'
 fi
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export GOPRIVATE=ghe.spotify.net/megaphone
-
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
-# PATH
+## PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH="${PATH}:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-# thefuck
-eval $(thefuck --alias)
-
-# pynev for managing versions of python
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Use vscode for kubectl
+## Docker
+export DOCKER_HOST="unix:///Users/cxg8655/.colima/docker.sock"
+## Use vscode for kubectl
 export KUBE_EDITOR='code --wait'
-
-# NVM
+## NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
-# Something to do with homebrew?
-source ~/.zprofile
 # My secret keys
 source ~/.secrets
 # Prompt
-source $(brew --prefix)/opt/spaceship/spaceship.zsh
-# Plugins
-source ~/.zsh_custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/.zsh_custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+#source $(brew --prefix)/opt/spaceship/spaceship.zsh
+
+# Getting Fancy
+eval $(zoxide init --cmd cd zsh) 
+alias ls='eza --icons --group-directories-first'
+## Fzf 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --ansi --preview "bat --color=always --style=header,grid --line-range :500 {}"'
+zstyle ':completion:*' menu no
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors ''
+zstyle ':fzf-tab:*' fzf-preview 'bat --color=always --style=header,grid --line-range :500 {}'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+source <(fzf --zsh)
 
 # Aliases
 function k() {
@@ -58,27 +91,6 @@ function kn() {
     kubens $@
 }
 
-function f() {
-    cd ${@:-./}
-    cd $(find * -type d | fzf --preview 'tree -C -L 2 {}')
-}
-
-function prod() {
-    gcloud config configurations activate prod
-}
-
-function stage() {
-    gcloud config configurations activate stage
-}
-
-function xpn() {
-    gcloud config configurations activate xpn
-}
-
-function lens() {
-    open -a OpenLens
-}
-
 function config() {
     nvim ~/git/macos-ansible/roles/zsh/files/.zshrc
     ansible-playbook ~/git/macos-ansible/playbook.yml --tags "zsh"
@@ -90,18 +102,6 @@ function wifi() {
   sudo ifconfig en0 up
 }
 
-function cleanup() {
-    osascript -e 'quit app "Google Chrome"'
-    osascript -e 'quit app "OpenLens"'
-    osascript -e 'quit app "Visual Studio Code"'
-    osascript -e 'quit app "Reminders"'
-    osascript -e 'quit app "Mail"'
-    osascript -e 'quit app "Calendar"'
-    osascript -e 'quit app "Notes"'
-    osascript -e 'quit app "Finder"'
-    osascript -e 'quit app "Terminal"'
-}
-
 function suggest() {
  gh copilot suggest $@
 }
@@ -109,3 +109,13 @@ function suggest() {
 function explain() {
  gh copilot explain $@
 }
+
+function mr() {
+ glab mr create --fill --squash-before-merge
+ glab mr view -w
+}
+
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

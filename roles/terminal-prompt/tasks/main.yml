@@ -1,9 +1,0 @@
-- name: terminal-prompt | install
-  homebrew:
-    name: spaceship
-    state: present
-
-- name: terminal-prompt | Copy .spaceshiprc.zsh
-  copy:
-    src: .spaceshiprc.zsh
-    dest: ~/.spaceshiprc.zsh

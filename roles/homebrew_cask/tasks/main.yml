@@ -16,10 +16,6 @@
       state: present
       accept_external_apps: true
 
-  - name: homebrew tap | homebrew/cask-fonts
-    community.general.homebrew_tap:
-      name: homebrew/cask-fonts
-
   - name: homebrew cask | font-jetbrains-mono-nerd-font
     homebrew_cask:
       name: font-jetbrains-mono-nerd-font

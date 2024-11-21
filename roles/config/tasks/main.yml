@@ -1,4 +1,4 @@
 - name: config | Copy .config dir
-  synchronize:
+  ansible.posix.synchronize:
     src: ./
     dest: ~/.config/

@@ -1,4 +1,7 @@
-- name: tmux | Copy .tmux.conf
-  copy:
-    src: .tmux.conf
+- name: tmux | Symlink .tmux.conf
+  file:
+    src: ~/git/macos-ansible/roles/tmux/files/.tmux.conf
     dest: ~/.tmux.conf
+    state: link
+  tags:
+    - tmux

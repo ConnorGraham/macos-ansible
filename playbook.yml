@@ -12,6 +12,8 @@
         name: config
     - include_role:
         name: tmux
+      tags:
+        - tmux
     - include_role: 
         name: zsh
       tags:

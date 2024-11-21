@@ -13,8 +13,6 @@
     - include_role: 
         name: terminal-themes
     - include_role: 
-        name: zsh-plugins
-    - include_role: 
         name: vim
     - include_role: 
         name: homebrew_cask

@@ -1,29 +1,27 @@
-  - name: homebrew cask | visual-studio-code
+  - name: homebrew cask | rectangle
     homebrew_cask:
-      name: visual-studio-code
+      name: rectangle
       state: present
       accept_external_apps: true
 
-  - name: homebrew cask | google-chrome
+  - name: homebrew cask | jordanbaird-ice
     homebrew_cask:
-      name: google-chrome
-      state: present
-      accept_external_apps: true
-  
-  - name: homebrew cask | slack
-    homebrew_cask:
-      name: slack
+      name: jordanbaird-ice
       state: present
       accept_external_apps: true
 
-  - name: homebrew cask | 1password
+  - name: homebrew cask | alacritty
     homebrew_cask:
-      name: 1password/tap/1password-cli
+      name: alacritty
       state: present
       accept_external_apps: true
 
-  - name: homebrew cask | spotify
+  - name: homebrew tap | homebrew/cask-fonts
+    community.general.homebrew_tap:
+      name: homebrew/cask-fonts
+
+  - name: homebrew cask | font-jetbrains-mono-nerd-font
     homebrew_cask:
-      name: spotify
+      name: font-jetbrains-mono-nerd-font
       state: present
       accept_external_apps: true

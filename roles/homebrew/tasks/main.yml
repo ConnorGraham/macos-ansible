@@ -3,14 +3,39 @@
     name: jq
     state: present
 
+- name: homebrew | yq
+  homebrew:
+    name: yq
+    state: present
+
+- name: homebrew | pyenv
+  homebrew:
+    name: pyenv
+    state: present
+
+- name: homebrew | go
+  homebrew:
+    name: go
+    state: present
+
+- name: homebrew | temporal
+  homebrew:
+    name: temporal
+    state: present
+
+- name: homebrew | tfenv
+  homebrew:
+    name: tfenv
+    state: present
+
+- name: homebrew | teleport
+  homebrew:
+    name: teleport
+    state: present
+
 - name: homebrew | docker
   homebrew:
     name: docker
-    state: present
-
-- name: homebrew | gh
-  homebrew:
-    name: gh
     state: present
 
 - name: homebrew | git
@@ -25,12 +50,22 @@
 
 - name: homebrew | tree
   homebrew:
-    name: gh
+    name: tree
     state: present
   
 - name: homebrew | helm
   homebrew:
     name: helm
+    state: present
+
+- name: homebrew | kubectl
+  homebrew:
+    name: kubectl
+    state: present
+
+- name: homebrew | kubectx
+  homebrew:
+    name: kubectx
     state: present
 
 - name: homebrew | chroma
@@ -47,11 +82,6 @@
   homebrew:
     name: bat
     state: present
-
-- name: homebrew | pet
-  homebrew:
-    name: knqyf263/pet/pet
-    state: present  
 
 - name: homebrew | ripgrep
   homebrew:
@@ -73,6 +103,41 @@
     name: conftest
     state: present 
 
+- name: homebrew | zoxide
+  homebrew:
+    name: zoxide
+    state: present
+
+- name: homebrew | eza
+  homebrew:
+    name: eza
+    state: present
+
+- name: homebrew | tmux
+  homebrew:
+    name: tmux
+    state: present
+
+- name: homebrew | neovim
+  homebrew:
+    name: neovim
+    state: present
+
+- name: homebrew | fd
+  homebrew:
+    name: fd
+    state: present
+
+- name: homebrew | colima
+  homebrew:
+    name: colima
+    state: present
+
+- name: homebrew | powerlevel10k
+  homebrew:
+    name: powerlevel10k
+    state: present
+    
 - name: homebrew | upgrade all
   homebrew:
     upgrade_all: true

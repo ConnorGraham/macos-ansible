@@ -1,4 +1,6 @@
-- name: config | Copy .config dir
-  ansible.posix.synchronize:
-    src: ./
-    dest: ~/.config/
+- name: config | Create symlink for .config dir
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/roles/config/files/"
+    dest: ~/.config
+    state: link
+  tags: config

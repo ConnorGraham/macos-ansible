@@ -1,6 +1,6 @@
 - name: tmux | Symlink .tmux.conf
   file:
-    src: "{{ playbook_dir }}/roles/tmux/files/.tmux.conf"
+    src: "{{ playbook_dir }}/roles/p10k/files/.p10k.zsh"
     dest: ~/.tmux.conf
     state: link
   tags:

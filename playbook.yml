@@ -10,6 +10,7 @@
         name: homebrew
     - include_role: 
         name: config
+      tags: config
     - include_role:
         name: tmux
       tags:

@@ -5,9 +5,10 @@
   tags:
     - zsh
 
-- name: zsh | Copy .zshrc
-  copy:
-    src: .zshrc
+- name: zsh | Symlink .zshrc
+  file:
+    src: "{{ playbook_dir }}/roles/zsh/files/.zshrc"
     dest: ~/.zshrc
+    state: link
   tags:
     - zsh

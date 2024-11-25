@@ -64,11 +64,11 @@ source ~/.secrets
 
 # Getting Fancy
 eval $(zoxide init --cmd cd zsh) 
-alias ls='eza --icons --group-directories-first'
+alias ls='eza --icons --group-directories-first --no-filesize --no-user --no-time --all'
 ## Fzf 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git | fzf'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git | fzf"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --ansi --preview "bat --color=always --style=header,grid --line-range :500 {}"'
 zstyle ':completion:*' menu no
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -79,6 +79,18 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 source <(fzf --zsh)
 
 # Aliases
+function f() {
+  fd --type f --hidden --follow --exclude .git | fzf 
+}
+zle -N f
+bindkey '^F' f
+
+function d(){
+  fd --type d --hidden --follow --exclude .git | fzf
+}
+zle -N d
+bindkey '^d' d
+
 function k() {
     kubectl $@
 }
@@ -89,12 +101,6 @@ function kc() {
 
 function kn() {
     kubens $@
-}
-
-function config() {
-    nvim ~/git/macos-ansible/roles/zsh/files/.zshrc
-    ansible-playbook ~/git/macos-ansible/playbook.yml --tags "zsh"
-    source ~/.zshrc
 }
 
 function wifi() {
@@ -115,7 +121,6 @@ function mr() {
  glab mr view -w
 }
 
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,0 +1,90 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+m",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+    },
+    // alt+cmd+l will focus or hide the auxiliary/right bar
+    {
+        "key": "alt+cmd+l",
+        "command": "workbench.action.focusAuxiliaryBar"
+    },
+    {
+        "key": "alt+cmd+l",
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "auxiliaryBarFocus"
+    },
+    // alt+cmd+h will focus or hide the side/left bar
+    {
+        "key": "alt+cmd+h",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    {
+        "key": "alt+cmd+h",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "filesExplorerFocus"
+    },
+    // alt+cmd+k will focus the active editor group
+    {
+        "key": "alt+cmd+k",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    // alt+cmd+j will focus or hide the terminal/down bar
+    {
+        "key": "alt+cmd+j",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "alt+cmd+j",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminalFocus"
+    },
+    // file explorer keymaps
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+shift+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+f",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+h",
+        "command": "list.collapse",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+j",
+        "command": "list.focusDown",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+k",
+        "command": "list.focusUp",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "cmd+l",
+        "command": "list.expand",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    // cmd + up arrow for page up
+    {
+        "key": "cmd+up",
+        "command": "cursorPageUp"
+    },
+    // cmd + down arrow for page down
+    {
+        "key": "cmd+down",
+        "command": "cursorPageDown"
+    }
+]

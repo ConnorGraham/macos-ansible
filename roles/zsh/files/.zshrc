@@ -41,7 +41,7 @@ setopt hist_find_no_dups
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code'
+  export EDITOR='nvim'
 fi
 ## PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -103,6 +103,22 @@ function kn() {
     kubens $@
 }
 
+function kall() {
+  for ctx in $(kubectl config get-contexts -o name); do
+    echo "Context: $ctx"
+    kubectl --context="$ctx" "$@"
+    echo
+  done
+}
+
+function hall() {
+  for ctx in $(kubectl config get-contexts -o name); do
+    echo "Context: $ctx"
+    helm --kube-context "$ctx" "$@"
+    echo
+  done
+}
+
 function wifi() {
   sudo ifconfig en0 down
   sudo ifconfig en0 up
@@ -117,8 +133,8 @@ function explain() {
 }
 
 function mr() {
- glab mr create --fill --squash-before-merge
- glab mr view -w
+  glab mr create --fill --squash-before-merge --remove-source-branch --yes
+  echo ":gitlab: $(glab mr view -F json | jq -r '.title, .web_url')" | pbcopy
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

@@ -28,11 +28,6 @@
     name: tfenv
     state: present
 
-- name: homebrew | teleport
-  homebrew:
-    name: teleport
-    state: present
-
 - name: homebrew | docker
   homebrew:
     name: docker
@@ -138,6 +133,41 @@
     name: powerlevel10k
     state: present
     
+- name: homebrew | yazi
+  homebrew:
+    name: yazi
+    state: present
+
+- name: homebrew | ffmpegthumbnailer
+  homebrew:
+    name: ffmpegthumbnailer
+    state: present
+
+- name: homebrew | ffmpeg
+  homebrew:
+    name: ffmpeg
+    state: present
+
+- name: homebrew | 7zip
+  homebrew:
+    name: 7zip
+    state: present
+
+- name: homebrew | poppler
+  homebrew:
+    name: poppler
+    state: present
+
+- name: homebrew | imagemagick
+  homebrew:
+    name: imagemagick
+    state: present
+
+- name: homebrew | font-symbols-only-nerd-font
+  homebrew:
+    name: font-symbols-only-nerd-font
+    state: present
+
 - name: homebrew | upgrade all
   homebrew:
     upgrade_all: true

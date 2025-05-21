@@ -16,6 +16,10 @@
       tags:
         - tmux
     - include_role: 
+        name: vscode
+      tags:
+        - vscode
+    - include_role: 
         name: zsh
       tags:
         - zsh

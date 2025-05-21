@@ -1,0 +1,15 @@
+- name: vscode | Symlink keybindings.json
+  file:
+    src: "{{ playbook_dir }}/roles/vscode/files/keybindings.json"
+    dest: ~/Library/Application Support/Code/User/keybindings.json
+    state: link
+  tags:
+    - vscode
+
+- name: vscode | Symlink settings.json
+  file:
+    src: "{{ playbook_dir }}/roles/vscode/files/settings.json"
+    dest: ~/Library/Application Support/Code/User/settings.json
+    state: link
+  tags:
+    - vscode
